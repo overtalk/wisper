@@ -51,3 +51,30 @@ class pet(object):
 - setattr(object, name, value)和getattr(object, name[, default])内置函数
 - 其中object是对象，name是对象的属性名，value是属性值。
 - 这两个函数会调用对象的`__getattr__`和`__setattr__`魔术方法。
+
+
+-----------------------
+
+## Python 在运行时创建新的类
+- 其实 type() 函数不仅可以返回一个对象的类型，也可以创建出新的类型
+```python
+type(类名, 父类的元组（针对继承的情况，可以为空），包含属性的字典（名称和值）)
+```
+- Python 解释器遇到 class 定义时，仅仅是扫描一下 class 定义的语法，然后调用 type() 函数创建出 class 的。
+
+```python
+# -*- coding: utf-8 -*-
+
+
+def __init__(self, name):
+	self.name = name
+
+def introduction(self):
+	print 'i am ', self.name
+
+if __name__ == '__main__':
+	Person = type('Person', (object, ), dict(introduction=introduction, __init__=__init__))
+	print Person
+	p = Person('python')
+	p.introduction()
+```

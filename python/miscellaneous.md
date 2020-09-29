@@ -1,4 +1,5 @@
-# day01
+# 杂项
+- 动态语言和静态语言最大的不同，就是函数和类的定义，不是编译时定义的，而是运行时动态创建的。
 
 ## 整型
 - Python中可以处理任意大小的整数（Python 2.x中有int和long两种类型的整数，但这种区分对Python来说意义不大，因此在Python 3.x中整数只有int这一种了）
@@ -77,4 +78,29 @@ def func():
 flag = True
 
 flag and func()
+```
+
+## eval函数
+- 用来计算在字符串中的有效 Python 表达式,并返回一个对象
+```python
+a = 23
+
+# demo1
+ret = eval('a == 23')
+print ret  # True
+
+# demo2
+ret = eval('a + 23')
+print ret  # 46
+```
+
+## isinstance函数
+- 判断是否为某类型的实例
+```python
+class Demo(object):
+	def __init__(self):
+		pass
+
+d = Demo()
+print isinstance(d, Demo)
 ```
